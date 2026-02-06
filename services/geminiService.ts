@@ -2,10 +2,12 @@
 import { GoogleGenAI, Type } from "@google/genai";
 import { HoroscopeResult } from "../types";
 
-const ai = new GoogleGenAI({ apiKey: process.env.API_KEY as string });
+// Removed top-level initialization to prevent crash
+
 
 export const generateKumbidiHoroscope = async (base64Image: string): Promise<HoroscopeResult> => {
   const model = "gemini-3-flash-preview";
+  const ai = new GoogleGenAI({ apiKey: process.env.API_KEY as string });
 
   const systemInstruction = `
     You are 'Kumbidi', the legendary humorous and eccentric Namboothiri astrologer from Malayalam cinema. 
@@ -50,6 +52,6 @@ export const generateKumbidiHoroscope = async (base64Image: string): Promise<Hor
 
   const jsonStr = response.text?.trim();
   if (!jsonStr) throw new Error("Empty response from Kumbidi");
-  
+
   return JSON.parse(jsonStr) as HoroscopeResult;
 };
