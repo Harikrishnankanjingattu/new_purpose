@@ -1,0 +1,8 @@
+
+{
+  "name": "Kumbidi's Digital Kavadi",
+  "description": "A hilarious Malayalam horoscope generator based on the legendary Kumbidi character. Upload a photo and get your destiny read in a funny Namboothiri style.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
